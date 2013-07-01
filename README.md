@@ -1,0 +1,4 @@
+jslock
+======
+
+JavaScript page locker
