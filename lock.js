@@ -291,9 +291,9 @@ lk.share = function(net) {
   switch (net) {
     case "v": {
       url  = 'http://vkontakte.ru/share.php';
-      url += '?title='       + toURI(lk.sharing.title);
+      url += '?url='         + toURI(lk.sharing.url);
+      url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
-      url += '&url='         + toURI(lk.sharing.url);
       url += '&image='       + toURI(lk.sharing.img);
       url += '&noparse=true';
       break;
