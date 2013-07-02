@@ -3,14 +3,41 @@
 
 if (w.lk) return;
 
+var metrika_counter_id = 21681037,
+    // Заглушка на случай если метрика отвалилась или еще не начала работать
+    counter = {
+        params: function (params) {}
+    };
+
+(function () {
+    var c = "yandex_metrika_callbacks";
+    (w[c] = w[c] || []).push(function() {
+        try {
+            counter = new Ya.Metrika({
+                id: metrika_counter_id,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            });
+            counter.params({visit: true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+    s = d.createElement("script"),
+    f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})();
+
 w.lk = {
   // Время блокировки кнопки "Продолжить работу"
   time: 15,
-  // ВНИМАНИЕ! Адрес сервера статистики будет добавлен в скрипт
-  //           перед стартом акции, просьба не размещать скрипт
-  //           блокировки до начала акции (до полуночи 3 июля)            
-  // Адрес сервера статистики. Если не хотите отправлять статистику, оставьте значение пустым
-  statserver: '',
 
   sharing: {
     // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае                         
@@ -18,7 +45,7 @@ w.lk = {
     // Заголовок поста, который публикует пользователь в соцсетях
     title: 'Интернет-свобода под угрозой!', 
      // Текст, который публикует пользователь в соцсетях 140 символов
-    text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт. Подробнее читайте здесь.',
+    text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт. http://habrahabr.ru/post/185174/',
     // Ссылка на изображение, которое публикует пользователь в соцсетях
     img: 'http://habr.habrastorage.org/post_images/d48/220/5df/d482205df3e93e00a7993e551d6c128b.png'
   },
@@ -40,7 +67,8 @@ w.lk = {
       <p>Компаниями <a target="_blank" href="http://clubs.ya.ru/company/replies.xml?item_no=67927">Яндекс</a>, <a target="_blank" href="http://googlerussiablog.blogspot.ru/2013/06/google.html">Google</a>, ассоциацией <a target="_blank" href="http://raec.ru/times/detail/2625/">РАЭК</a> были предложены поправки к закону, исключающие возможность ложной блокировки невинных ресурсов, но их <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182/#comment_6402274">не учли</a>.</p> \
       <p>Не стоит надеяться на программистов. В случае, если законы подобного уровня проработки будут приниматься дальше, ничто не помешает запретить анонимные cистемы обмена информацией, такие как <a target="_blank" href="http://ru.wikipedia.org/wiki/I2P">I2P</a> или <a target="_blank" href="http://ru.wikipedia.org/wiki/Tor">TOR</a>, ввести лицензирование <a target="_blank" href="http://ru.wikipedia.org/wiki/VPN">VPN</a> и шифрованных туннелей. Если мы это допустим, то Интернет потеряет независимость.</p> \
       <p>На сайте onlinepetition.ru был организован сбор подписей против этого закона. Если вы согласны с тем, что в таком виде он не должен существовать, поставьте, пожалуйста, свою подпись под петицией или просто продолжите работу по завершении отсчета таймера в случае, если вам <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6">безразлично</a> будущее Рунета.</p> \
-      <p>Так или иначе, закон вступает в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>'
+      <p>Так или иначе, закон вступает в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>',
+    counter_id: metrika_counter_id
   },
 
   html: '\
@@ -72,6 +100,7 @@ w.lk = {
       <div class="lk-note">tl;dr: вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ihwh"&gt;&lt;/script&gt;</div>\
       </div> \
     </div> \
+    <noscript><div><img src="//mc.yandex.ru/watch/{COUNTER_ID}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\
     </div>',
 
   css: '\
@@ -330,7 +359,7 @@ lk.share = function(net) {
 
   if (url) {
     w.open(url, '', 'toolbar=0,status=0,width=640,height=480');
-    req('share.php?n='+net);
+    counter.params({share: net});
     lk.done = true;
   }
 };
@@ -464,16 +493,6 @@ function setStorage(name, val, sec) {
   d.cookie = name + "=" + val + "; path=/; expires=" + date.toUTCString();
 }
 
-function req(url) {
-  if (!lk.statserver) return;
-  var s = d.createElement("script");
-  s.type = "text/javascript";
-  s.charset='UTF-8';
-  s.async = true;
-  s.src = lk.statserver + url;
-  h.appendChild(s);
-}
-
 var seen = getStorage('alreadyseenlock');
 var isRussian = /^ru/.test(navigator.language);
 
@@ -519,19 +538,20 @@ documentReady(function(){
       var lkEl = d.getElementById('lk-page');
       lkEl.parentNode.removeChild(lkEl);
 
-      if (!seen && !lk.done)
-        req('action.php?a=0');
+      if (!seen && !lk.done) {
+        counter.params({skip: true});
+      }
     }
   };
 
   d.getElementById('lk-pet').onclick = function() {
-    if (!seen)
-      req('action.php?a=1');
+    if (!seen) {
+      counter.params({sign: true});
+    }
     lk.done = true;
   };
 
   lk.timer();
-  req('view.php');
 });
 
 })(window, document);    
