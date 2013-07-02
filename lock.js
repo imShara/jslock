@@ -1,9 +1,9 @@
 // public domain
-(function (w, d){
+(function (w, d, undefined){
 
 if (w.lk) return;
 
-lk = {
+w.lk = {
   // Время блокировки кнопки "Продолжить работу"
   time: 15,
   // ВНИМАНИЕ! Адрес сервера статистики будет добавлен в скрипт
@@ -246,7 +246,7 @@ lk = {
           opacity: .6; \
           cursor: pointer; \
         }'
-}
+};
 
 // Корявость CSS, обусловлена необходимостью "перебить" стили
 // сайтов, на которых скрипт будет размещён
@@ -348,7 +348,7 @@ lk.timer = function() {
     contBtn.className='';
   } else {
     timerEl.innerHTML='('+(lk.time--)+')';
-    setCookie('timerstatelock', lk.time, 3456000);
+    setStorage('timerstatelock', lk.time, 3456000);
     setTimeout(lk.timer, 1000);
   }
 }
@@ -384,7 +384,7 @@ var documentReady = (function (w, d) {
           k = w.frameElement == null
         }
         catch (j) {}
-        if (b.doScroll && k) ie();
+        if (d.body.doScroll && k) ie();
       } else {
        old=w.onload;
        w.onload=function(e) {
@@ -414,7 +414,7 @@ var documentReady = (function (w, d) {
   function ie() {
     if (inited) return;
     try {
-      b.doScroll("left")
+      d.body.doScroll("left")
     }
     catch (j) {
       setTimeout(ie, 1);
@@ -443,23 +443,29 @@ var getScroll = (w.pageXOffset != undefined) ?
     var top = html.scrollTop || body && body.scrollTop || 0;
     top -= html.clientTop;
     return top;
-  }
+  };
 
-function getCookie(name) {
+function getStorage(name) {
+  if (w.sessionStorage && w.sessionStorage[name]) {
+    return w.sessionStorage[name];
+  }
   var matches = d.cookie.match(new RegExp(
     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-function setCookie(name, val, sec) {
-  var date = new Date(new Date().getTime() + sec*1000);
-  d.cookie=name+"="+val+"; path=/; expires="+date.toUTCString();
+function setStorage(name, val, sec) {
+  if (w.sessionStorage) {
+    w.sessionStorage[name] = val;
+  }
+  var date = new Date(new Date().getTime() + sec * 1000);
+  d.cookie = name + "=" + val + "; path=/; expires=" + date.toUTCString();
 }
 
 function req(url) {
   if (!lk.statserver) return;
-  s = d.createElement("script");
+  var s = d.createElement("script");
   s.type = "text/javascript";
   s.charset='UTF-8';
   s.async = true;
@@ -467,12 +473,14 @@ function req(url) {
   h.appendChild(s);
 }
 
-var seen = getCookie('alreadyseenlock');
-if (seen && w.location.hash != '#block') return;
+var seen = getStorage('alreadyseenlock');
+var isRussian = /^ru/.test(navigator.language);
+
+if (seen && w.location.hash != '#block' && isRussian) return;
 
 var h = d.head || d.getElementsByTagName('head')[0];
 
-var time = getCookie('timerstatelock');
+var time = getStorage('timerstatelock');
 
 if (time)
   lk.time = parseInt(time);
@@ -500,26 +508,26 @@ documentReady(function(){
   h.appendChild(style);
 
   d.getElementById('lk-share').onclick = function(e) {
-    if(e.target.tagName == "A")
+    if (e.target.tagName == "A")
       lk.share(e.target.id.substr(3, this.length));
-  }
+  };
 
   d.getElementById('lk-cont').onclick = function() {
     if (!lk.time) {
-      setCookie('alreadyseenlock', '1', 3456000);
+      setStorage('alreadyseenlock', '1', 3456000);
       var lkEl = d.getElementById('lk-page');
       lkEl.parentNode.removeChild(lkEl);
 
       if (!seen && !lk.done)
         req('action.php?a=0');
     }
-  }
+  };
 
   d.getElementById('lk-pet').onclick = function() {
     if (!seen)
       req('action.php?a=1');
     lk.done = true;
-  }
+  };
 
   lk.timer();
   req('view.php');
