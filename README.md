@@ -13,7 +13,10 @@
 <script src="http://rawgithub.com/imShara/jslock/master/lock.min.js"></script>
 ```
 
-а лучше положите [lock.js](http://rawgithub.com/imShara/jslock/master/lock.js) на свой сайт.
+В случае, если вы хотите внести изменения в текст обращения, изменить время блокировки, 
+адрес сайта, или сделать любое другое изменение в скрипте, возьмите этот скрип
+
+[lock.js](http://rawgithub.com/imShara/jslock/master/lock.js) и загрузите на свой сайт.
 
 [Живой пример](http://imShara.github.com/jslock)
 
