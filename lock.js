@@ -3,6 +3,7 @@
 
 if (w.lk) return;
 
+var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
 var deadline = +new Date("Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)");
 var isRussian = /^ru/.test(navigator.language);
 var isExpires = +new Date() > deadline;
@@ -10,7 +11,7 @@ var isExpires = +new Date() > deadline;
 // Если время акции истекло или посетитель не из России, то ничего не делаем:
 // - не загружаем метрику
 // - не рисуем блокировщик
-if (!isRussian || isExpires) return;
+if (isOperaMini || !isRussian || isExpires) return;
 
 var metrika_counter_id = 21681037,
     // Заглушка на случай если метрика отвалилась или еще не начала работать
@@ -562,4 +563,4 @@ documentReady(function(){
   lk.timer();
 });
 
-})(window, document);    
+})(window, document);
