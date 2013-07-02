@@ -69,7 +69,7 @@ w.lk = {
         <a href="javascript:void(0)" id="lk-b"></a> \
       </div> \
       <div class="lk-note">Разместите <a target="_blank" href="https://github.com/imShara/jslock">такую же страничку</a> на своем личном сайте</div> \
-      <div class="lk-note">tl;dr: вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ihwh"&gt;&lt;/script&gt;</div>\
+      <div class="lk-note">Вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ihwh"&gt;&lt;/script&gt;</div>\
       </div> \
     </div> \
     </div>',
