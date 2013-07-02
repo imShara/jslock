@@ -14,20 +14,20 @@ w.lk = {
 
   sharing: {
     // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае                         
-    url: 'http://localhost#block',   
+    url: 'http://' + location.host + '/#block',
     // Заголовок поста, который публикует пользователь в соцсетях
     title: 'Интернет-свобода под угрозой!', 
      // Текст, который публикует пользователь в соцсетях 140 символов
     text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт. Подробнее читайте здесь.',
     // Ссылка на изображение, которое публикует пользователь в соцсетях
-    img: ''
+    img: 'http://habr.habrastorage.org/post_images/d48/220/5df/d482205df3e93e00a7993e551d6c128b.png'
   },
 
   replace: {
     // Название сайта в заголовке
-    sitename: 'Хабрахабр',
+    sitename: '' || location.hostname,
     // Ссылка на сайт в заголовке
-    siteurl:  'http://habrahabr.ru/',
+    siteurl:  'http://' + location.host + '/',
     // Надпись на кнопке голосования
     votename: 'Подписать петицию',                  
     // Адрес петиции
@@ -69,6 +69,7 @@ w.lk = {
         <a href="javascript:void(0)" id="lk-b"></a> \
       </div> \
       <div class="lk-note">Разместите <a target="_blank" href="https://github.com/imShara/jslock">такую же страничку</a> на своем личном сайте</div> \
+      <div class="lk-note">tl;dr: вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ihwh"&gt;&lt;/script&gt;</div>\
       </div> \
     </div> \
     </div>',
@@ -332,13 +333,13 @@ lk.share = function(net) {
     req('share.php?n='+net);
     lk.done = true;
   }
-}
+};
 
 lk.build = function(html, replace){
   for (var key in replace)
     html = html.replace('{'+key.toUpperCase()+'}', replace[key]);
   return html;
-}
+};
 
 lk.timer = function() {
   var timerEl = d.getElementById('lk-time');
@@ -351,7 +352,7 @@ lk.timer = function() {
     setStorage('timerstatelock', lk.time, 3456000);
     setTimeout(lk.timer, 1000);
   }
-}
+};
 
 var documentReady = (function (w, d) {
   var inited = false, loaded = false, queue = [], done, old;
