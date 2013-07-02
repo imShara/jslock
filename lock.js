@@ -200,7 +200,7 @@ w.lk = {
           font-size: 11px; \
         } \
         .lk-note a { \
-          color: #777 !important; \
+          color: #888 !important; \
         } \
           .lk-note a:hover { \
             color: #71acfb !important; \
@@ -520,12 +520,6 @@ documentReady(function(){
   div.innerHTML = lk.build(lk.html, lk.replace);
   d.body.appendChild(div);
 
-  // Устанавливает позицию блока с обращением
-  // на высоту прокрутки. Это нужно, если пользователь пришел
-  // по ссылке с якорем. Зафиксировать блок абсолютным позиционированием
-  // нельзя, так как он может превышать высоту экрана.
-  // Применить overflow нельзя, мобильные не поддерживают
-  // overflow у блока :(
   d.getElementById('lk-body').style.marginTop = getScroll()+'px';
 
   var style = d.createElement('style');
