@@ -3,6 +3,8 @@
 
 if (w.lk) return;
 
+var deadline = "Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)";
+
 var metrika_counter_id = 21681037,
     // Заглушка на случай если метрика отвалилась или еще не начала работать
     counter = {
@@ -495,8 +497,11 @@ function setStorage(name, val, sec) {
 
 var seen = getStorage('alreadyseenlock');
 var isRussian = /^ru/.test(navigator.language);
+var isExpires = +new Date() > +new Date(deadline);
 
-if (seen && w.location.hash != '#block' && isRussian) return;
+// Если время акции истекло или посетитель не из России, то ничего не делаем
+if (!isRussian || isExpires) return;
+if (seen && w.location.hash != '#block') return;
 
 var h = d.head || d.getElementsByTagName('head')[0];
 
