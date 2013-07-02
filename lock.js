@@ -68,7 +68,7 @@ lk = {
         <a href="javascript:void(0)" id="lk-l"></a> \
         <a href="javascript:void(0)" id="lk-b"></a> \
       </div> \
-      <div class="lk-note">Разместите <a target="_blank" href="#">такую же страничку</a> на своем личном сайте</div> \
+      <div class="lk-note">Разместите <a target="_blank" href="https://github.com/imShara/jslock">такую же страничку</a> на своем личном сайте</div> \
       </div> \
     </div> \
     </div>',
