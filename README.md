@@ -5,13 +5,13 @@
 Просто вставьте в любое место вашей страницы этот скрипт
 
 ```js
-<script src="http://clck.ru/8ihwh"></script>
+<script src="http://clck.ru/8ijea"></script>
 ```
 
 или этот
 
 ```js
-<script src="http://rawgithub.com/imShara/jslock/master/lock.js"></script>
+<script src="http://rawgithub.com/imShara/jslock/master/lock.min.js"></script>
 ```
 
 а лучше положите [lock.js](http://rawgithub.com/imShara/jslock/master/lock.js) на свой сайт.
