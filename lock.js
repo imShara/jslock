@@ -326,17 +326,17 @@ lk.share = function(net) {
     }
     case "m": {
       url  = 'http://connect.mail.ru/share';
-      url += '?title='       + toURI(lk.sharing.title);
+      url += '?url='         + toURI(lk.sharing.url);
+      url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
-      url += '&url='         + toURI(lk.sharing.url);
       url += '&imageurl='    + toURI(lk.sharing.img);
       break;
     }
     case "y": {
       url  = 'http://wow.ya.ru/posts_share_link.xml';
-      url += '?title=' + toURI(lk.sharing.title);
+      url += '?url='   + toURI(lk.sharing.url);
+      url += '&title=' + toURI(lk.sharing.title);
       url += '&body='  + toURI(lk.sharing.text);
-      url += '&url='   + toURI(lk.sharing.url);
       break;
     }
     case "j": {
@@ -348,14 +348,14 @@ lk.share = function(net) {
     }
     case "l": {
       url  = 'http://www.liveinternet.ru/journal_post.php?action=n_add';
-      url += '&cntitle=' + toURI(lk.sharing.title);
       url += '&cnurl='  + toURI(lk.sharing.url);
+      url += '&cntitle=' + toURI(lk.sharing.title);
       break;
     }
     case "b": {
       url  = 'http://blogger.com/blog-this.g?t';
-      url += '&n=' + toURI(lk.sharing.title);
       url += '&u=' + toURI(lk.sharing.url);
+      url += '&n=' + toURI(lk.sharing.title);
       break;
     }
   }
