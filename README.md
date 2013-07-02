@@ -7,7 +7,6 @@
 ```js
 <script src="http://clck.ru/8ijea"></script>
 ```
-
 или этот
 
 ```js
