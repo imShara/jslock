@@ -195,7 +195,7 @@ w.lk = {
         } \
         .lk-note { \
           margin: 10px 10px; \
-          color: #555; \
+          color: #666; \
           text-align:center; \
           font-size: 11px; \
         } \
