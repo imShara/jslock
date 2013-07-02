@@ -288,9 +288,6 @@ w.lk = {
         }'
 };
 
-// Корявость CSS, обусловлена необходимостью "перебить" стили
-// сайтов, на которых скрипт будет размещён
-
 lk.share = function(net) {
   function toURI(str) {return encodeURIComponent(str)};
   var url = '';
