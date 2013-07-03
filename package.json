@@ -1,0 +1,25 @@
+{
+  "name": "jslock",
+  "description": "JavaScript page locker",
+  "version": "1.0.0",
+  "author": "imShara",
+  "contributors": [
+    {
+      "name": "Mikhail Davydov",
+      "email": "i@azproduction.ru"
+    },
+    {
+      "name": "Anatoliy Ostrovskiy",
+      "email": "forgetthisbox@gmail.com"
+    }
+  ],
+  "main": "./lock.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imShara/jslock.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
+}
