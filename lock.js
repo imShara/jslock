@@ -73,7 +73,7 @@ w.lk = {
       <p>Компаниями <a target="_blank" href="http://clubs.ya.ru/company/replies.xml?item_no=67927">Яндекс</a>, <a target="_blank" href="http://googlerussiablog.blogspot.ru/2013/06/google.html">Google</a>, ассоциацией <a target="_blank" href="http://raec.ru/times/detail/2625/">РАЭК</a> были предложены поправки к закону, исключающие возможность ложной блокировки невинных ресурсов, но их <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182/#comment_6402274">не учли</a>.</p> \
       <p>Не стоит надеяться на программистов. В случае, если законы подобного уровня проработки будут приниматься дальше, ничто не помешает запретить анонимные cистемы обмена информацией, такие как <a target="_blank" href="http://ru.wikipedia.org/wiki/I2P">I2P</a> или <a target="_blank" href="http://ru.wikipedia.org/wiki/Tor">TOR</a>, ввести лицензирование <a target="_blank" href="http://ru.wikipedia.org/wiki/VPN">VPN</a> и шифрованных туннелей. Если мы это допустим, то Интернет потеряет независимость.</p> \
       <p>На сайте onlinepetition.ru был организован сбор подписей против этого закона. Если вы согласны с тем, что в таком виде он не должен существовать, поставьте, пожалуйста, свою подпись под петицией или просто продолжите работу по завершении отсчета таймера в случае, если вам <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6">безразлично</a> будущее Рунета.</p> \
-      <p>Так или иначе, закон вступает в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>',
+      <p>Закон должен вступить в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>',
     counter_id: metrika_counter_id
   },
 
@@ -102,8 +102,9 @@ w.lk = {
         <a href="javascript:void(0)" id="lk-l"></a> \
         <a href="javascript:void(0)" id="lk-b"></a> \
       </div> \
-      <div class="lk-note">Разместите <a target="_blank" href="https://github.com/imShara/jslock">такую же страничку</a> на своем личном сайте</div> \
-      <div class="lk-note">Вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ijea"&gt;&lt;/script&gt;</div>\
+      <div class="lk-note">Разместите это обращение на личном сайте, вставив данный скрипт</div> \
+      <div class="lk-note"><span class="lk-light">&lt;script src="http://clck.ru/8ijea"&gt;&lt;/script&gt;</span> в любую часть страницы</div> \
+      <div class="lk-note">В случае, если вы хотите переделать скрипт, <a target="_blank" href="https://github.com/imShara/jslock">возьмите его на GitHub</a></div> \
       </div> \
     </div> \
     <noscript><div><img src="//mc.yandex.ru/watch/{COUNTER_ID}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\
@@ -194,6 +195,9 @@ w.lk = {
           color: #666; \
           text-align:center; \
           font-size: 11px; \
+        } \
+        .lk-light { \
+          color: #999 !important; \
         } \
         .lk-note a { \
           color: #888 !important; \
