@@ -3,14 +3,47 @@
 
 if (w.lk) return;
 
+var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
+var deadline = +new Date("Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)");
+var isRussian = /^ru/.test(navigator.language);
+var isExpires = +new Date() > deadline;
+
+if (isOperaMini || !isRussian || isExpires) return;
+
+var metrika_counter_id = 21681037,
+    counter = {
+        params: function (params) {}
+    };
+
+(function () {
+    var c = "yandex_metrika_callbacks";
+    (w[c] = w[c] || []).push(function() {
+        try {
+            counter = new Ya.Metrika({
+                id: metrika_counter_id,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            });
+            counter.params({visit: true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+    s = d.createElement("script"),
+    f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})();
+
 w.lk = {
   // Время блокировки кнопки "Продолжить работу"
   time: 15,
-  // ВНИМАНИЕ! Адрес сервера статистики будет добавлен в скрипт
-  //           перед стартом акции, просьба не размещать скрипт
-  //           блокировки до начала акции (до полуночи 3 июля)            
-  // Адрес сервера статистики. Если не хотите отправлять статистику, оставьте значение пустым
-  statserver: '',
 
   sharing: {
     // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае                         
@@ -18,7 +51,7 @@ w.lk = {
     // Заголовок поста, который публикует пользователь в соцсетях
     title: 'Интернет-свобода под угрозой!', 
      // Текст, который публикует пользователь в соцсетях 140 символов
-    text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт. Подробнее читайте здесь.',
+    text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт.',
     // Ссылка на изображение, которое публикует пользователь в соцсетях
     img: 'http://habr.habrastorage.org/post_images/d48/220/5df/d482205df3e93e00a7993e551d6c128b.png'
   },
@@ -40,7 +73,8 @@ w.lk = {
       <p>Компаниями <a target="_blank" href="http://clubs.ya.ru/company/replies.xml?item_no=67927">Яндекс</a>, <a target="_blank" href="http://googlerussiablog.blogspot.ru/2013/06/google.html">Google</a>, ассоциацией <a target="_blank" href="http://raec.ru/times/detail/2625/">РАЭК</a> были предложены поправки к закону, исключающие возможность ложной блокировки невинных ресурсов, но их <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182/#comment_6402274">не учли</a>.</p> \
       <p>Не стоит надеяться на программистов. В случае, если законы подобного уровня проработки будут приниматься дальше, ничто не помешает запретить анонимные cистемы обмена информацией, такие как <a target="_blank" href="http://ru.wikipedia.org/wiki/I2P">I2P</a> или <a target="_blank" href="http://ru.wikipedia.org/wiki/Tor">TOR</a>, ввести лицензирование <a target="_blank" href="http://ru.wikipedia.org/wiki/VPN">VPN</a> и шифрованных туннелей. Если мы это допустим, то Интернет потеряет независимость.</p> \
       <p>На сайте onlinepetition.ru был организован сбор подписей против этого закона. Если вы согласны с тем, что в таком виде он не должен существовать, поставьте, пожалуйста, свою подпись под петицией или просто продолжите работу по завершении отсчета таймера в случае, если вам <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6">безразлично</a> будущее Рунета.</p> \
-      <p>Так или иначе, закон вступает в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>'
+      <p>Закон должен вступить в силу <b>1 августа</b>. Заседания Думы на тему защиты музыкальных произведений и прочих авторских прав будут проведены этой осенью.</p>',
+    counter_id: metrika_counter_id
   },
 
   html: '\
@@ -68,10 +102,12 @@ w.lk = {
         <a href="javascript:void(0)" id="lk-l"></a> \
         <a href="javascript:void(0)" id="lk-b"></a> \
       </div> \
-      <div class="lk-note">Разместите <a target="_blank" href="https://github.com/imShara/jslock">такую же страничку</a> на своем личном сайте</div> \
-      <div class="lk-note">Вставьте скрипт на страницу &ndash; &lt;script src="http://clck.ru/8ihwh"&gt;&lt;/script&gt;</div>\
+      <div class="lk-note">Разместите это обращение на личном сайте, вставив данный скрипт</div> \
+      <div class="lk-note"><span class="lk-light">&lt;script src="http://clck.ru/8ijea"&gt;&lt;/script&gt;</span> в любую часть страницы</div> \
+      <div class="lk-note">В случае, если вы хотите переделать скрипт, <a target="_blank" href="https://github.com/imShara/jslock">возьмите его на GitHub</a></div> \
       </div> \
     </div> \
+    <noscript><div><img src="//mc.yandex.ru/watch/{COUNTER_ID}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\
     </div>',
 
   css: '\
@@ -156,12 +192,15 @@ w.lk = {
         } \
         .lk-note { \
           margin: 10px 10px; \
-          color: #555; \
+          color: #666; \
           text-align:center; \
           font-size: 11px; \
         } \
+        .lk-light { \
+          color: #999 !important; \
+        } \
         .lk-note a { \
-          color: #777 !important; \
+          color: #888 !important; \
         } \
           .lk-note a:hover { \
             color: #71acfb !important; \
@@ -249,9 +288,6 @@ w.lk = {
         }'
 };
 
-// Корявость CSS, обусловлена необходимостью "перебить" стили
-// сайтов, на которых скрипт будет размещён
-
 lk.share = function(net) {
   function toURI(str) {return encodeURIComponent(str)};
   var url = '';
@@ -259,9 +295,9 @@ lk.share = function(net) {
   switch (net) {
     case "v": {
       url  = 'http://vkontakte.ru/share.php';
-      url += '?title='       + toURI(lk.sharing.title);
+      url += '?url='         + toURI(lk.sharing.url);
+      url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
-      url += '&url='         + toURI(lk.sharing.url);
       url += '&image='       + toURI(lk.sharing.img);
       url += '&noparse=true';
       break;
@@ -294,17 +330,17 @@ lk.share = function(net) {
     }
     case "m": {
       url  = 'http://connect.mail.ru/share';
-      url += '?title='       + toURI(lk.sharing.title);
+      url += '?url='         + toURI(lk.sharing.url);
+      url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
-      url += '&url='         + toURI(lk.sharing.url);
       url += '&imageurl='    + toURI(lk.sharing.img);
       break;
     }
     case "y": {
       url  = 'http://wow.ya.ru/posts_share_link.xml';
-      url += '?title=' + toURI(lk.sharing.title);
+      url += '?url='   + toURI(lk.sharing.url);
+      url += '&title=' + toURI(lk.sharing.title);
       url += '&body='  + toURI(lk.sharing.text);
-      url += '&url='   + toURI(lk.sharing.url);
       break;
     }
     case "j": {
@@ -316,21 +352,21 @@ lk.share = function(net) {
     }
     case "l": {
       url  = 'http://www.liveinternet.ru/journal_post.php?action=n_add';
-      url += '&cntitle=' + toURI(lk.sharing.title);
       url += '&cnurl='  + toURI(lk.sharing.url);
+      url += '&cntitle=' + toURI(lk.sharing.title);
       break;
     }
     case "b": {
       url  = 'http://blogger.com/blog-this.g?t';
-      url += '&n=' + toURI(lk.sharing.title);
       url += '&u=' + toURI(lk.sharing.url);
+      url += '&n=' + toURI(lk.sharing.title);
       break;
     }
   }
 
   if (url) {
     w.open(url, '', 'toolbar=0,status=0,width=640,height=480');
-    req('share.php?n='+net);
+    counter.params({share: net});
     lk.done = true;
   }
 };
@@ -464,20 +500,9 @@ function setStorage(name, val, sec) {
   d.cookie = name + "=" + val + "; path=/; expires=" + date.toUTCString();
 }
 
-function req(url) {
-  if (!lk.statserver) return;
-  var s = d.createElement("script");
-  s.type = "text/javascript";
-  s.charset='UTF-8';
-  s.async = true;
-  s.src = lk.statserver + url;
-  h.appendChild(s);
-}
-
 var seen = getStorage('alreadyseenlock');
-var isRussian = /^ru/.test(navigator.language);
 
-if (seen && w.location.hash != '#block' && isRussian) return;
+if (seen && w.location.hash != '#block') return;
 
 var h = d.head || d.getElementsByTagName('head')[0];
 
@@ -492,12 +517,6 @@ documentReady(function(){
   div.innerHTML = lk.build(lk.html, lk.replace);
   d.body.appendChild(div);
 
-  // Устанавливает позицию блока с обращением
-  // на высоту прокрутки. Это нужно, если пользователь пришел
-  // по ссылке с якорем. Зафиксировать блок абсолютным позиционированием
-  // нельзя, так как он может превышать высоту экрана.
-  // Применить overflow нельзя, мобильные не поддерживают
-  // overflow у блока :(
   d.getElementById('lk-body').style.marginTop = getScroll()+'px';
 
   var style = d.createElement('style');
@@ -519,19 +538,20 @@ documentReady(function(){
       var lkEl = d.getElementById('lk-page');
       lkEl.parentNode.removeChild(lkEl);
 
-      if (!seen && !lk.done)
-        req('action.php?a=0');
+      if (!seen && !lk.done) {
+        counter.params({skip: true});
+      }
     }
   };
 
   d.getElementById('lk-pet').onclick = function() {
-    if (!seen)
-      req('action.php?a=1');
+    if (!seen) {
+      counter.params({sign: true});
+    }
     lk.done = true;
   };
 
   lk.timer();
-  req('view.php');
 });
 
-})(window, document);    
+})(window, document);
