@@ -161,7 +161,7 @@ w.lk = {
       font-size: 14px; \
       font-family: Verdana, sans-serif; \
       z-index: 999999; \
-      text-align: left; \
+      text-align: justify; \
     } \
     #lk-body a { \
       border: none !important; \
