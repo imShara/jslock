@@ -391,6 +391,9 @@ lk.timer = function() {
   }
 };
 
+for (var i in w.LK_SETTINGS)
+  lk[i] = LK_SETTINGS[i];
+
 var documentReady = (function (w, d) {
   var inited = false, loaded = false, queue = [], done, old;
 
