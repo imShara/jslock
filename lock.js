@@ -294,7 +294,7 @@ lk.share = function(net) {
   var url = '';
 
   switch (net) {
-    case "v": {
+    case "v":
       url  = 'http://vkontakte.ru/share.php';
       url += '?url='         + toURI(lk.sharing.url);
       url += '&title='       + toURI(lk.sharing.title);
@@ -302,67 +302,67 @@ lk.share = function(net) {
       url += '&image='       + toURI(lk.sharing.img);
       url += '&noparse=true';
       break;
-    }
-    case "o": {
+
+    case "o":
       url  = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
       url += '&st.comments=' + toURI(lk.sharing.text);
       url += '&st._surl='    + toURI(lk.sharing.url);
       break;
-    }
-    case "f": {
+
+    case "f":
       url  = 'http://www.facebook.com/sharer.php?s=100';
       url += '&p[title]='     + toURI(lk.sharing.title);
       url += '&p[summary]='   + toURI(lk.sharing.text);
       url += '&p[url]='       + toURI(lk.sharing.url);
       url += '&p[images][0]=' + toURI(lk.sharing.img);
       break;
-    }
-    case "t": {
+
+    case "t":
       url  = 'http://twitter.com/share';
       url += '?text='     + toURI(lk.sharing.text);
       url += '&url='      + toURI(lk.sharing.url);
       url += '&counturl=' + toURI(lk.sharing.url);
       break;
-    }
-    case "g": {
+
+    case "g":
       url  = 'https://plus.google.com/share';
       url += '?url=' + toURI(lk.sharing.url);
       break;
-    }
-    case "m": {
+
+    case "m":
       url  = 'http://connect.mail.ru/share';
       url += '?url='         + toURI(lk.sharing.url);
       url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
       url += '&imageurl='    + toURI(lk.sharing.img);
       break;
-    }
-    case "y": {
+
+    case "y":
       url  = 'http://wow.ya.ru/posts_share_link.xml';
       url += '?url='   + toURI(lk.sharing.url);
       url += '&title=' + toURI(lk.sharing.title);
       url += '&body='  + toURI(lk.sharing.text);
       break;
-    }
-    case "j": {
+
+    case "j":
       url  = 'http://livejournal.com/update.bml';
       url += '?subject=' + toURI(lk.sharing.title);
       url += '&event='   + toURI(lk.sharing.text+'<br/><a href="'+lk.sharing.url+'">'+lk.sharing.title+'</a>');
       url += '&transform=1';
       break;
-    }
-    case "l": {
+
+    case "l":
       url  = 'http://www.liveinternet.ru/journal_post.php?action=n_add';
       url += '&cnurl='  + toURI(lk.sharing.url);
       url += '&cntitle=' + toURI(lk.sharing.title);
       break;
-    }
-    case "b": {
+
+    case "b":
       url  = 'http://blogger.com/blog-this.g?t';
       url += '&u=' + toURI(lk.sharing.url);
       url += '&n=' + toURI(lk.sharing.title);
       break;
-    }
+
   }
 
   if (url) {
