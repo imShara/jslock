@@ -290,7 +290,7 @@ w.lk = {
 };
 
 lk.share = function(net) {
-  function toURI(str) {return encodeURIComponent(str)};
+  function toURI(str) { return encodeURIComponent(str) }
   var url = '';
 
   switch (net) {
