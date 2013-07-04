@@ -1,0 +1,2 @@
+Работа над текстом перенесена сюда https://github.com/imShara/jslock/blob/master/roi.md
+Прошу передавать только указанную выше ссылку.
