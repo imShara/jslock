@@ -515,7 +515,7 @@ var h = d.head || d.getElementsByTagName('head')[0];
 var time = getStorage('timerstatelock');
 
 if (time)
-  lk.time = parseInt(time);
+  lk.time = parseInt(time, 10);
 
 documentReady(function(){
   var div = d.createElement('div');
