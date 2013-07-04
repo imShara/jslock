@@ -47,10 +47,10 @@ w.lk = {
   onlyRusLang: false,
 
   sharing: {
-    // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае                         
+    // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае
     url: 'http://' + location.host + '/#block',
     // Заголовок поста, который публикует пользователь в соцсетях
-    title: 'Интернет-свобода под угрозой!', 
+    title: 'Интернет-свобода под угрозой!',
      // Текст, который публикует пользователь в соцсетях 140 символов
     text: '1 августа вступит в силу закон о борьбе с пиратским видео в интернете, который даёт возможность закрыть любой сайт.',
     // Ссылка на изображение, которое публикует пользователь в соцсетях
@@ -63,7 +63,7 @@ w.lk = {
     // Ссылка на сайт в заголовке
     siteurl:  'http://' + location.host + '/',
     // Надпись на кнопке голосования
-    votename: 'Подписать петицию',                  
+    votename: 'Подписать петицию',
     // Адрес петиции
     voteurl:  'http://www.onlinepetition.ru/%D0%BE%D1%82%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C-%D0%BF%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D0%B8%D0%B5-%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BE%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0---292521-6-/petition.html',
     // Основной текст страницы
@@ -290,11 +290,11 @@ w.lk = {
 };
 
 lk.share = function(net) {
-  function toURI(str) {return encodeURIComponent(str)};
+  function toURI(str) { return encodeURIComponent(str) }
   var url = '';
 
   switch (net) {
-    case "v": {
+    case "v":
       url  = 'http://vkontakte.ru/share.php';
       url += '?url='         + toURI(lk.sharing.url);
       url += '&title='       + toURI(lk.sharing.title);
@@ -302,67 +302,67 @@ lk.share = function(net) {
       url += '&image='       + toURI(lk.sharing.img);
       url += '&noparse=true';
       break;
-    }
-    case "o": {
+
+    case "o":
       url  = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
       url += '&st.comments=' + toURI(lk.sharing.text);
       url += '&st._surl='    + toURI(lk.sharing.url);
       break;
-    }
-    case "f": {
-      url  = 'http://www.facebook.com/sharer.php?s=100';   
+
+    case "f":
+      url  = 'http://www.facebook.com/sharer.php?s=100';
       url += '&p[title]='     + toURI(lk.sharing.title);
       url += '&p[summary]='   + toURI(lk.sharing.text);
       url += '&p[url]='       + toURI(lk.sharing.url);
       url += '&p[images][0]=' + toURI(lk.sharing.img);
       break;
-    }
-    case "t": {
+
+    case "t":
       url  = 'http://twitter.com/share';
       url += '?text='     + toURI(lk.sharing.text);
       url += '&url='      + toURI(lk.sharing.url);
       url += '&counturl=' + toURI(lk.sharing.url);
       break;
-    }
-    case "g": {
+
+    case "g":
       url  = 'https://plus.google.com/share';
       url += '?url=' + toURI(lk.sharing.url);
       break;
-    }
-    case "m": {
+
+    case "m":
       url  = 'http://connect.mail.ru/share';
       url += '?url='         + toURI(lk.sharing.url);
       url += '&title='       + toURI(lk.sharing.title);
       url += '&description=' + toURI(lk.sharing.text);
       url += '&imageurl='    + toURI(lk.sharing.img);
       break;
-    }
-    case "y": {
+
+    case "y":
       url  = 'http://wow.ya.ru/posts_share_link.xml';
       url += '?url='   + toURI(lk.sharing.url);
       url += '&title=' + toURI(lk.sharing.title);
       url += '&body='  + toURI(lk.sharing.text);
       break;
-    }
-    case "j": {
+
+    case "j":
       url  = 'http://livejournal.com/update.bml';
       url += '?subject=' + toURI(lk.sharing.title);
       url += '&event='   + toURI(lk.sharing.text+'<br/><a href="'+lk.sharing.url+'">'+lk.sharing.title+'</a>');
       url += '&transform=1';
       break;
-    }
-    case "l": {
+
+    case "l":
       url  = 'http://www.liveinternet.ru/journal_post.php?action=n_add';
       url += '&cnurl='  + toURI(lk.sharing.url);
       url += '&cntitle=' + toURI(lk.sharing.title);
       break;
-    }
-    case "b": {
+
+    case "b":
       url  = 'http://blogger.com/blog-this.g?t';
       url += '&u=' + toURI(lk.sharing.url);
       url += '&n=' + toURI(lk.sharing.title);
       break;
-    }
+
   }
 
   if (url) {
@@ -392,7 +392,7 @@ lk.timer = function() {
 };
 
 for (var i in w.LK_SETTINGS)
-  lk[i] = LK_SETTINGS[i];
+  lk[i] = w.LK_SETTINGS[i];
 
 var documentReady = (function (w, d) {
   var inited = false, loaded = false, queue = [], done, old;
@@ -476,7 +476,7 @@ var documentReady = (function (w, d) {
 
 var getScroll = (w.pageXOffset != undefined) ?
   function() {
-    return pageYOffset;
+    return w.pageYOffset;
   } :
   function() {
     var html = d.documentElement;
@@ -515,7 +515,7 @@ var h = d.head || d.getElementsByTagName('head')[0];
 var time = getStorage('timerstatelock');
 
 if (time)
-  lk.time = parseInt(time);
+  lk.time = parseInt(time, 10);
 
 documentReady(function(){
   var div = d.createElement('div');
@@ -527,9 +527,9 @@ documentReady(function(){
 
   var style = d.createElement('style');
   style.type = 'text/css';
-  if (style.styleSheet) 
+  if (style.styleSheet)
     style.styleSheet.cssText = lk.css;
-  else 
+  else
     style.appendChild(d.createTextNode(lk.css));
   h.appendChild(style);
 
