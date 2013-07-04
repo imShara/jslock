@@ -5,10 +5,9 @@ if (w.lk) return;
 
 var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
 var deadline = +new Date("Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)");
-var isRussian = /^ru/.test(navigator.language);
 var isExpires = +new Date() > deadline;
 
-if (isOperaMini || !isRussian || isExpires) return;
+if (isOperaMini || isExpires) return;
 
 var metrika_counter_id = 21681037,
     counter = {
@@ -44,6 +43,8 @@ var metrika_counter_id = 21681037,
 w.lk = {
   // Время блокировки кнопки "Продолжить работу"
   time: 15,
+  // Показывать только пользователям с русской локализацией системы/браузера
+  onlyRusLang: false,
 
   sharing: {
     // Адрес, который публикует пользователь в соцсетях якорь #block заставляет показать страницу блокировки в любом случае                         
@@ -501,8 +502,10 @@ function setStorage(name, val, sec) {
 }
 
 var seen = getStorage('alreadyseenlock');
+var isRussian = /^ru/.test(navigator.language);
 
 if (seen && w.location.hash != '#block') return;
+if (lk.onlyRusLang && !isRussian) return;
 
 var h = d.head || d.getElementsByTagName('head')[0];
 
