@@ -392,7 +392,7 @@ lk.timer = function() {
 };
 
 for (var i in w.LK_SETTINGS)
-  lk[i] = LK_SETTINGS[i];
+  lk[i] = w.LK_SETTINGS[i];
 
 var documentReady = (function (w, d) {
   var inited = false, loaded = false, queue = [], done, old;
@@ -476,7 +476,7 @@ var documentReady = (function (w, d) {
 
 var getScroll = (w.pageXOffset != undefined) ?
   function() {
-    return pageYOffset;
+    return w.pageYOffset;
   } :
   function() {
     var html = d.documentElement;
