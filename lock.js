@@ -65,7 +65,7 @@ w.lk = {
     // Надпись на кнопке голосования
     votename: 'Подписать петицию',
     // Адрес петиции
-    voteurl:  'http://www.onlinepetition.ru/%D0%BE%D1%82%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C-%D0%BF%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D0%B8%D0%B5-%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D0%BE%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0---292521-6-/petition.html',
+    voteurl:  'https://www.roi.ru/poll/petition/gosudarstvennoe_upravlenie1/otmenit-zakon-o-proizvolnyh-blokirovkah-internet-resursov-ot-02072013-187-fz-zakon-protiv-interneta/',
     // Основной текст страницы
     info: '\
       <p>21 июня Государственная Дума РФ <a target="_blank" href="http://lenta.ru/news/2013/06/21/piracylaw/">почти единогласно</a> и в кратчайшие сроки <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182">приняла</a> <a target="_blank" href="http://asozd2.duma.gov.ru/main.nsf/(SpravkaNew)?OpenAgent&RN=292521-6&02">закон</a> о борьбе с пиратским распространением фильмов и сериалов в сети Интернет.</p> \
