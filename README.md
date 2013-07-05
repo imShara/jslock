@@ -3,14 +3,23 @@
 ## Как установить?
 
 Просто вставьте в любое место вашей страницы этот скрипт
-
+Для обычных http сайтов:
 ```js
-<script src="http://clck.ru/8ijea"></script>
+<script src="http://lockjs.googlecode.com/git/lock.min.js"></script>
 ```
-или этот
+или для сайтов с https
 
 ```js
-<script src="http://rawgithub.com/imShara/jslock/master/lock.min.js"></script>
+<script src="https://lockjs.googlecode.com/git/lock.min.js"></script>
+```
+
+Так же вы можете разместить баннер в шапке сайта как на habrahabr.ru
+Выглядит так:
+![http://habrahabr.ru/post/185554/](http://habrahabr.ru/images/banners/begeek_2.gif "100.000 подписей собрано, что дальше? Российская Общественная Инициатива!")
+
+Код (сразу после тега ```<body>```):
+```html
+<a style="background: #ffff18 url(http://habrahabr.ru/images/banners/begeek_2.gif) no-repeat center center;display:block;height:90px;box-shadow:0 1px 2px #ccc;" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&amp;ad=410696&amp;bt=21&amp;bid=2696012&amp;bn=2696012&amp;rnd=1251482300"></a>
 ```
 
 В случае, если вы хотите внести изменения в текст обращения, изменить время блокировки, 
