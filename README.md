@@ -4,19 +4,19 @@
 
 Просто вставьте в любое место вашей страницы этот скрипт
 
-```js
+```html
 <script src="http://clck.ru/8ijea"></script>
 ```
 или этот
 
-```js
+```html
 <script src="http://rawgithub.com/imShara/jslock/master/lock.min.js"></script>
 ```
 
 В случае, если вы хотите внести изменения в текст обращения, изменить время блокировки, 
 адрес сайта, или сделать любое другое изменение в скрипте, используйте глобальный объект LK_SETTINGS:
 
-```js
+```html
 <script type="text/javascript">
   window.LK_SETTINGS = {
     time: 5 // Время блокировки кнопки "Продолжить работу"
