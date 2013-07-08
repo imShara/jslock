@@ -5,7 +5,7 @@
 Просто вставьте в любое место вашей страницы этот скрипт
 
 ```html
-<script src="https://lockjs.googlecode.com/git/lock.min.js"></script>
+<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
 ```
 
 Так же вы можете разместить баннер в шапке сайта как на habrahabr.ru
@@ -28,13 +28,15 @@
 </script>
 ```
 
-или возьмите [этот скрипт](http://rawgithub.com/imShara/jslock/master/lock.js), внесите изменения и загрузите на свой сайт.
+или возьмите [этот скрипт](http://lockjs.googlecode.com/git/lock.js), внесите изменения и загрузите на свой сайт.
 
 
 
 [Живой пример](http://imShara.github.com/jslock)
 
 [Подробнее о проекте](http://habrahabr.ru/post/185174/)
+
+[Зеркало репозитория](http://code.google.com/p/lockjs)
 
 ## Разработка
 
