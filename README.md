@@ -14,7 +14,8 @@
 
 Код (сразу после тега ```<body>```):
 ```html
-<a style="background: #ffff18 url(http://habrahabr.ru/images/banners/begeek_2.gif) no-repeat center center;display:block;height:90px;box-shadow:0 1px 2px #ccc;" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&amp;ad=410696&amp;bt=21&amp;bid=2696012&amp;bn=2696012&amp;rnd=1251482300"></a>
+<a style="background: #ffff18 url(http://habrahabr.ru/images/banners/begeek_2.gif) no-repeat center center;display:block;height:90px;box-shadow:0 1px 2px #ccc;" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&amp;ad=410696&amp;bt=21&amp;bid=2696012&amp;bn=2696012&amp;rnd=1251482300">
+</a>
 ```
 
 В случае, если вы хотите внести изменения в текст обращения, изменить время блокировки, 
