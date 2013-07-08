@@ -39,6 +39,7 @@
 
 [Зеркало репозитория](http://code.google.com/p/lockjs)
 
+
 ## Разработка
 
 ```bash
@@ -46,8 +47,4 @@ $ git clone git@github.com:imShara/jslock.git
 $ cd jslock
 $ npm i
 ```
-Для пересборки файла ```lock.min.js``` нужен [grunt](http://gruntjs.com). Если он еще не установлен, то устанавливаем:
-```bash
-npm install -g grunt-cli
-```
-Далее командой ```grunt``` файл ```lock.min.js``` будет пересобран
+Для пересборки файла ```lock.min.js``` используйте скрипт ```minify.js```.
