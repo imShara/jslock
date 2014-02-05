@@ -5,12 +5,17 @@
 Просто вставьте в любое место вашей страницы этот скрипт
 
 ```html
-<script src="http://clck.ru/8ijea"></script>
+<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
 ```
-или этот
 
+Так же вы можете разместить баннер в шапке сайта как на habrahabr.ru
+Выглядит так:
+![http://habrahabr.ru/post/185554/](http://habrahabr.ru/images/banners/begeek_2.gif "100.000 подписей собрано, что дальше? Российская Общественная Инициатива!")
+
+Код (сразу после тега ```<body>```):
 ```html
-<script src="http://rawgithub.com/imShara/jslock/master/lock.min.js"></script>
+<a style="background: #ffff18 url(http://habrahabr.ru/images/banners/begeek_2.gif) no-repeat center center;display:block;height:90px;box-shadow:0 1px 2px #ccc;" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&amp;ad=410696&amp;bt=21&amp;bid=2696012&amp;bn=2696012&amp;rnd=1251482300">
+</a>
 ```
 
 В случае, если вы хотите внести изменения в текст обращения, изменить время блокировки, 
@@ -24,13 +29,16 @@
 </script>
 ```
 
-или возьмите [этот скрипт](http://rawgithub.com/imShara/jslock/master/lock.js), внесите изменения и загрузите на свой сайт.
+или возьмите [этот скрипт](http://lockjs.googlecode.com/git/lock.js), внесите изменения и загрузите на свой сайт.
 
 
 
 [Живой пример](http://imShara.github.com/jslock)
 
 [Подробнее о проекте](http://habrahabr.ru/post/185174/)
+
+[Зеркало репозитория](http://code.google.com/p/lockjs)
+
 
 ## Разработка
 
