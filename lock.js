@@ -220,6 +220,10 @@ w.lk = {
             } \
           #lk-info p { \
             margin-top: 10px; \
+            height: auto; \
+          } \
+          #lk-info p a { \
+            font-family: Verdana, sans-serif; \
           } \
     .lk-btnfld { \
       overflow: hidden; \
